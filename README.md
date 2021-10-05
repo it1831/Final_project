@@ -1,3 +1,3 @@
 Čtečka SPZ <br>
-Jazyk? 
-pomocí propojení mobilu s pc(najít aplikaci, která bude dobře propojitelná)
+Jazyk? <br>
+pomocí propojení mobilu s pc(najít aplikaci, která bude dobře propojitelná) <br>
