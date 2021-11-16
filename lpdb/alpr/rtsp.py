@@ -10,8 +10,11 @@ from datetime import datetime, timedelta
 import base64
 from io import BytesIO
 
-RTSP_PW = os.environ.get("RTSP_PW")
-RTSP_URL = "rtsp://lpdb:" + RTSP_PW + "@192.168.1.66/live"
+# RTSP_PW = os.environ.get("RTSP_PW")
+# RTSP_URL = "http://" + RTSP_PW + "@192.168.0.154:8080"
+
+RTSP_URL = "http://192.168.0.154:8080"
+
 
 JSON_CONFIG = {
     "debug_level": "info",
