@@ -1,9 +1,0 @@
-alpr_1      | *[COMPV INFO]: /!\ Code in file '/home/ultimate/ultimateBase/lib/source/ultimate_base_engine.cxx' in function 'init' starting at line #75: Not optimized for GPU -> GPGPU computing not enabled or deactivated
-
-
-
-
-alpr_1      | Traceback (most recent call last):
-alpr_1      |   File "/app/rtsp.py", line 90, in <module>
-alpr_1      |     image = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-alpr_1      | cv2.error: OpenCV(4.5.4-dev) /tmp/pip-req-build-7fc0r19r/opencv/modules/imgproc/src/color.cpp:182: error: (-215:Assertion failed) !_src.empty() in function 'cvtColor'
