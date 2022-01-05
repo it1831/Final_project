@@ -5,36 +5,3 @@ dostat se do bodu, kdy camera přečte spz a zapíše jí někam (bod odkud se p
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-https://github.com/dlandon/zoneminder.machine.learning
