@@ -78,7 +78,6 @@ for contour in contours:
 mask = np.zeros(gray.shape, np.uint8)
 new_image = cv2.drawContours(mask, [location], 0,255, -1)
 new_image = cv2.bitwise_and(img, img, mask=mask)
-plt.imsave('image_new12.jpg',cv2.cvtColor(new_image, cv2.COLOR_BGR2RGB))
 
 
 (x,y) = np.where(mask==255)
@@ -87,7 +86,7 @@ plt.imsave('image_new12.jpg',cv2.cvtColor(new_image, cv2.COLOR_BGR2RGB))
 cropped_image = gray[x1:x2+1, y1:y2+1]
 
 
-#Use Easy OCR To Read Text
+#Use EasyOCR To Read Text
 #define in what leanguage to read in
 reader = easyocr.Reader(['en'])
 #read text from variable cropped_image
