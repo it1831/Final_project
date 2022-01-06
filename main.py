@@ -55,19 +55,20 @@ gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 #Apply filter and find edges for localization
 
 #using bilateral Filter that reduces noise
-bfilter = cv2.bilateralFilter(gray, 11, 17, 17) #Noise reduction
+bfilter = cv2.bilateralFilter(gray, 11, 17, 17)
 #detecting edges
-edged = cv2.Canny(bfilter, 30, 200) #Edge detection
+edged = cv2.Canny(bfilter, 30, 200)
 
 #Find Contours and Apply Mask
 
-#
+#find edges
 keypoints = cv2.findContours(edged.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-#
+#simplifying return of contours
 contours = imutils.grab_contours(keypoints)
-#
+#return of top ten kontours
 contours = sorted(contours, key=cv2.contourArea, reverse=True)[:10]
 
+#filtring(looping) thrue contours to find number plate shape(rectangle)
 location = None
 for contour in contours:
     approx = cv2.approxPolyDP(contour, 10, True)
@@ -75,14 +76,19 @@ for contour in contours:
         location = approx
         break
 
+#
 mask = np.zeros(gray.shape, np.uint8)
+#finding numberplate 
 new_image = cv2.drawContours(mask, [location], 0,255, -1)
+#overlaying everything except numberplate
 new_image = cv2.bitwise_and(img, img, mask=mask)
 
-
+#storing coordinates in variables x,y
 (x,y) = np.where(mask==255)
+#storing top left point(min) and bottom right point(max)
 (x1, y1) = (np.min(x), np.min(y))
 (x2, y2) = (np.max(x), np.max(y))
+#getting variable croped_image
 cropped_image = gray[x1:x2+1, y1:y2+1]
 
 
