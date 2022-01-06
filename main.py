@@ -104,17 +104,18 @@ text2 = result[1][-2]
 text = text1 + " " + text2
 #define font on picture
 font = cv2.FONT_HERSHEY_SIMPLEX
-#
+#putting text in picture
 res = cv2.putText(img, text=text , org=(approx[0][0][0], approx[1][0][1]+60), fontFace=font, fontScale=1, color=(0,255,0), thickness=2, lineType=cv2.LINE_AA)
 #open txt file
 f = open("demofile.txt", "a")
 #define date + time to variable time
 time = datetime.now()
-#write in file SPZ and date+time
+#write in file numberplate and date+time
 f.write(text +"    " + str(time) + " \n")
 #close file
 f.close()
 
+#drawing rectangle in picture
 res = cv2.rectangle(img, tuple(approx[0][0]), tuple(approx[2][0]), (0,255,0),3)
 #plt.imsave('image_new%d.jpg', % count ,  cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
 #save image
