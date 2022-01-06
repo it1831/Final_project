@@ -15,14 +15,18 @@ import easyocr
 #read frame by frame{
 
 #success,image = variable.read()
+#define variables
 #count = 0
 #frames =1
 #skip_frames = 30
+#loop function for using only frames % 30
 #while success:
 #   ret,frame= variable.read()
 #       if ret and frames % skip_frames == 0
-#           cv2.imwrite("frame%d.jpg" % count, image)     # save frame as JPEG file
+# save frame as JPEG file
+#           cv2.imwrite("frame%d.jpg" % count, image)     
 #           success,image = variable.read()
+#add plus one to variables to use another frame and save next image with different name
 #           count += 1
 #           frames += 1
 #   else
@@ -101,15 +105,22 @@ result
 
 #Render Result
 text = result[0][-2]
+#define font on picture
 font = cv2.FONT_HERSHEY_SIMPLEX
+#
 res = cv2.putText(img, text=text, org=(approx[0][0][0], approx[1][0][1]+60), fontFace=font, fontScale=1, color=(0,255,0), thickness=2, lineType=cv2.LINE_AA)
+#open txt file
 f = open("demofile.txt", "a")
+#define date + time to variable time
 time = datetime.now()
-#print(time)
+#write in file SPZ and date+time
 f.write(text + "    " + str(time) + " \n")
+#close file
 f.close()
+
 res = cv2.rectangle(img, tuple(approx[0][0]), tuple(approx[2][0]), (0,255,0),3)
 #plt.imsave('image_new%d.jpg', % count ,  cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
+#save image
 plt.imsave('image_new.jpg', cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
 
 
