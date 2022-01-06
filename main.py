@@ -24,7 +24,7 @@ import easyocr
 #   ret,frame= variable.read()
 #       if ret and frames % skip_frames == 0
 # save frame as JPEG file
-#           cv2.imwrite("frame%d.jpg" % count, image)     
+#           cv2.imwrite("frame%d.jpg" % count, image)
 #           success,image = variable.read()
 #add plus one to variables to use another frame and save next image with different name
 #           count += 1
@@ -49,7 +49,7 @@ import easyocr
 #img = cv2.imread('/homejouadamis/PycharmProjects/pythonProject/image%d.jpg' %count)
 
 #define variable img for used image
-img = cv2.imread('/home/jouadamis/PycharmProjects/pythonProject/image4.jpg')
+img = cv2.imread('/home/jouadamis/PycharmProjects/pythonProject/image1.jpg')
 #converting picture to gray
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 #Apply filter and find edges for localization
@@ -75,10 +75,11 @@ for contour in contours:
         location = approx
         break
 
-location
 mask = np.zeros(gray.shape, np.uint8)
 new_image = cv2.drawContours(mask, [location], 0,255, -1)
 new_image = cv2.bitwise_and(img, img, mask=mask)
+plt.imsave('image_new12.jpg',cv2.cvtColor(new_image, cv2.COLOR_BGR2RGB))
+
 
 (x,y) = np.where(mask==255)
 (x1, y1) = (np.min(x), np.min(y))
@@ -91,36 +92,25 @@ cropped_image = gray[x1:x2+1, y1:y2+1]
 reader = easyocr.Reader(['en'])
 #read text from variable cropped_image
 result = reader.readtext(cropped_image)
-result
-
-#if LicensePlate == None
-#C++ = NULL PYTHON = None
-#move to another frame
-#LicensePlate = LicensePlate
-#else if LicensePlate = LicensePlate
-#move to another frame
-#else
-#use code
-#LicensePlate = LicensePlate
 
 #Render Result
-text = result[0][-2]
+text1 = result[0][-2]
+text2 = result[1][-2]
+text = text1 + " " + text2
 #define font on picture
 font = cv2.FONT_HERSHEY_SIMPLEX
 #
-res = cv2.putText(img, text=text, org=(approx[0][0][0], approx[1][0][1]+60), fontFace=font, fontScale=1, color=(0,255,0), thickness=2, lineType=cv2.LINE_AA)
+res = cv2.putText(img, text=text , org=(approx[0][0][0], approx[1][0][1]+60), fontFace=font, fontScale=1, color=(0,255,0), thickness=2, lineType=cv2.LINE_AA)
 #open txt file
 f = open("demofile.txt", "a")
 #define date + time to variable time
 time = datetime.now()
 #write in file SPZ and date+time
-f.write(text + "    " + str(time) + " \n")
+f.write(text +"    " + str(time) + " \n")
 #close file
 f.close()
 
 res = cv2.rectangle(img, tuple(approx[0][0]), tuple(approx[2][0]), (0,255,0),3)
 #plt.imsave('image_new%d.jpg', % count ,  cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
 #save image
-plt.imsave('image_new.jpg', cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
-
-
+plt.imsave('image_new1.jpg', cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
