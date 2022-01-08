@@ -18,8 +18,8 @@ success,image = video.read()
 #define variables
 count = 0
 frames = 1
-skip_frames = 31
-#loop function for using only frames % 30
+skip_frames = 29
+#loop function for using only frames % 31
 while success:
     ret, frame = video.read()
     if ret and frames % skip_frames == 0:
@@ -42,7 +42,8 @@ while success:
 #image = pil.Image.open('image')
 #loop whole code to read every saved frame
 number = 0
-while 1:
+
+for number in range(count):
     #define variable img for used image
     img = cv2.imread('/home/jouadamis/PycharmProjects/pythonProject/frame%d.jpg' %number)
     #img = cv2.imread('/home/jouadamis/PycharmProjects/pythonProject/image1.jpg')
@@ -70,8 +71,7 @@ while 1:
         if len(approx) == 4:
             location = approx
             break
-    mask = None
-    new_image = None
+
     mask = np.zeros(gray.shape, np.uint8)
     #finding numberplate
     new_image = cv2.drawContours(mask, [location], 0,255, -1)
@@ -116,7 +116,7 @@ while 1:
     #drawing rectangle in picture
     res = cv2.rectangle(img, tuple(approx[0][0]), tuple(approx[2][0]), (0,255,0),3)
     #save image
-    number += 1
-    plt.imsave('image_new%d.jpg' %number ,  cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
+    plt.imsave('/home/jouadamis/PycharmProjects/pythonProject/image_new%d.jpg' %number ,  cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
+    print(number)
     #save image
     #plt.imsave('image_new1.jpg', cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
