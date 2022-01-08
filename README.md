@@ -5,7 +5,7 @@ dostat se do bodu, kdy camera přečte spz a zapíše jí někam (bod odkud se p
 
 <h2> Linux <h2>
 pip install python3.6 <br>
-//needed python is usualy installed by default
+//needed python is usualy installed by default <br>
 pycharm from app store
 <h3> OpenCV <h3>
 sudo apt update <br>
