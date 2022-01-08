@@ -5,10 +5,10 @@ dostat se do bodu, kdy camera přečte spz a zapíše jí někam (bod odkud se p
 
 <h2> Linux <h2>
 <h3> OpenCV <h3>
-sudo apt update
+sudo apt update <br>
 sudo apt install python3-opencv
 <h3> Imultis <h3>
 sudo pip install imutils
 <h3> EasyOCR <h3>
-pip install easyocr
+pip install easyocr <br>
 pip install git+git://github.com/jaidedai/easyocr.git
