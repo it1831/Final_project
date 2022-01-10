@@ -15,3 +15,6 @@ sudo pip install imutils
 <h3> EasyOCR <h3>
 pip install easyocr <br>
 pip install git+git://github.com/jaidedai/easyocr.git
+
+  
+všechno integrovat pycharm
