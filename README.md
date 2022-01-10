@@ -3,6 +3,9 @@ Zoneminder <br>
 Droidcam/ipcam (otestovat, která bude v praxi lepší) <br>
 dostat se do bodu, kdy camera přečte spz a zapíše jí někam (bod odkud se program dá připojit na jiné databáze a různě využít.)
 
+
+
+#potřeba přepsat
 <h2> Linux <h2>
 pip install python3.6 <br>
 //needed python is usualy installed by default <br>
