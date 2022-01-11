@@ -1,6 +1,5 @@
 from datetime import datetime
 import cv2
-from matplotlib import pyplot as plt
 import numpy as np
 import imutils
 import easyocr
@@ -67,7 +66,7 @@ def picure(number):
     res = cv2.rectangle(img, tuple(approx[0][0]), tuple(approx[2][0]), (0, 255, 0), 3)
     #save image
 
-    plt.imsave('/home/jouadamis/PycharmProjects/pythonProject/image_new%d.jpg' % number,
+    cv2.imwrite('/home/jouadamis/PycharmProjects/pythonProject/image_new%d.jpg' % number,
                cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
     #plt.imsave('image_new1.jpg', cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
 
